@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import { PostMeta, PostExcerpt } from '@/components/PostShared'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
@@ -20,7 +21,7 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
   const { slug, title, summary, tags, images } = post
   return (
     <li
-      className="highlighted-article-container relative col-span-1 row-span-1 flex items-end overflow-hidden rounded-xl md:col-span-2 lg:col-span-2"
+      className="highlighted-article-container flex items-end overflow-hidden rounded-xl md:col-span-2 lg:col-span-2"
       style={{
         backgroundImage:
           images && images[0]
@@ -30,21 +31,17 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
         backgroundPosition: 'center',
       }}
     >
-      <Link href={`/blog/${slug}`} className="block h-full w-full">
-        <div className="article-preview-container p-6 text-white">
-          <div className="highlighted-article-link">
-            <header className="article-preview-header">
-              {tags.length > 0 && (
-                <div className="font-tag mt-2 mb-2 text-gray-200 hover:font-bold">{tags[0]}</div>
-              )}
-              <h3 className="mb-2 line-clamp-3 text-2xl leading-tight font-bold">{title}</h3>
-            </header>
-          </div>
-          <div className="excerpt mb-2">
-            <span className="font-body-text line-clamp-4 text-gray-200">{summary}</span>
-          </div>
+      <a href={`/blog/${slug}`} className="block h-full w-full">
+        <div className="p-6 text-white">
+          <header>
+            {tags.length > 0 && (
+              <div className="font-tag mb-2 text-gray-200 hover:font-bold">{tags[0]}</div>
+            )}
+            <h3 className="mb-2 line-clamp-3 text-2xl font-bold">{title}</h3>
+          </header>
+          <PostExcerpt summary={summary} textColor="text-gray-200" />
         </div>
-      </Link>
+      </a>
     </li>
   )
 }
