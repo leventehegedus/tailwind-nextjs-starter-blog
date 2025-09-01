@@ -1,5 +1,7 @@
 import Link from '@/components/Link'
-import { PostMeta, PostExcerpt, PostTags } from '@/components/PostShared'
+import PostMeta from '@/components/post-shared/PostMeta'
+import PostExcerpt from '@/components/post-shared/PostExcerpt'
+import PostTags from '@/components/post-shared/PostTags'
 import Image from 'next/image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -24,11 +26,11 @@ export default function PostListItem({ post }: PostListItemProps) {
       <a className="block overflow-hidden" href={`/blog/${slug}`}>
         {images && images.length ? (
           <Image
-            className="w-full object-cover transition-all duration-500 hover:scale-110 md:h-[390px]"
+            className="w-full object-cover transition-all duration-500 hover:scale-110 md:h-[314px]"
             src={images[0]}
             alt={title}
             width={600}
-            height={390}
+            height={314}
             sizes="(max-width: 1000px) 400px, 800px"
             priority={false}
             loading="lazy"
@@ -36,10 +38,10 @@ export default function PostListItem({ post }: PostListItemProps) {
           />
         ) : null}
       </a>
-      <div>
+      <div className="mb-1">
         <PostMeta slug={slug} title={title} tags={tags} />
         <PostExcerpt summary={summary} />
-        <div className="text-sm text-gray-400">
+        <div className="mb-1 text-sm text-gray-400">
           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
         </div>
         <PostTags tags={tags} />

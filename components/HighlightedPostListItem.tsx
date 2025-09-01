@@ -1,5 +1,6 @@
 import Link from '@/components/Link'
-import { PostMeta, PostExcerpt } from '@/components/PostShared'
+import PostMeta from '@/components/post-shared/PostMeta'
+import PostExcerpt from '@/components/post-shared/PostExcerpt'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
@@ -21,7 +22,7 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
   const { slug, title, summary, tags, images } = post
   return (
     <li
-      className="highlighted-article-container flex items-end overflow-hidden rounded-xl md:col-span-2 lg:col-span-2"
+      className="highlighted-article-container flex items-end overflow-hidden md:col-span-2 lg:col-span-2"
       style={{
         backgroundImage:
           images && images[0]
@@ -31,14 +32,9 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
         backgroundPosition: 'center',
       }}
     >
-      <a href={`/blog/${slug}`} className="block h-full w-full">
+      <a href={`/blog/${slug}`} className="block flex h-full w-full items-end">
         <div className="p-6 text-white">
-          <header>
-            {tags.length > 0 && (
-              <div className="font-tag mb-2 text-gray-200 hover:font-bold">{tags[0]}</div>
-            )}
-            <h3 className="mb-2 line-clamp-3 text-2xl font-bold">{title}</h3>
-          </header>
+          <PostMeta slug={slug} title={title} tags={tags} />
           <PostExcerpt summary={summary} textColor="text-gray-200" />
         </div>
       </a>
