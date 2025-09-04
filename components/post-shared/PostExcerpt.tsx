@@ -10,7 +10,7 @@ export default function PostExcerpt({
   textColor = 'text-gray-500',
 }: PostExcerptProps) {
   return (
-    <div className={`mb-1 ${className}`}>
+    <div className={`mb-2 ${className}`}>
       <span className={`font-body-text line-clamp-3 ${textColor}`}>{summary}</span>
     </div>
   )

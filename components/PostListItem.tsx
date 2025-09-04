@@ -23,8 +23,8 @@ export default function PostListItem({ post }: PostListItemProps) {
   const { slug, date, title, summary, tags, images } = post
   return (
     <li key={slug} className="article-preview post story">
-      <a className="block overflow-hidden" href={`/blog/${slug}`}>
-        {images && images.length ? (
+      {images && images.length ? (
+        <a className="mb-6 block overflow-hidden" href={`/blog/${slug}`}>
           <Image
             className="w-full object-cover transition-all duration-500 hover:scale-110 md:h-[314px]"
             src={images[0]}
@@ -36,12 +36,14 @@ export default function PostListItem({ post }: PostListItemProps) {
             loading="lazy"
             style={{ objectFit: 'cover' }}
           />
-        ) : null}
-      </a>
+        </a>
+      ) : (
+        <></>
+      )}
       <div className="mb-1">
         <PostMeta slug={slug} title={title} tags={tags} />
         <PostExcerpt summary={summary} />
-        <div className="mb-1 text-sm text-gray-400">
+        <div className="mb-2 text-sm text-gray-400 uppercase">
           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
         </div>
         <PostTags tags={tags} />

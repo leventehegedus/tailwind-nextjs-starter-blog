@@ -2,8 +2,9 @@ import Link from '@/components/Link'
 import PostListItem from '@/components/PostListItem'
 import GridSection from '@/components/GridSection'
 import HighlightedPostListItem from '@/components/HighlightedPostListItem'
+import SmallArticle from '@/components/SmallArticle'
 
-const MAX_DISPLAY = 7
+const MAX_DISPLAY = 6
 
 const renderPostSection = (title, postList) => {
   return (
@@ -13,6 +14,14 @@ const renderPostSection = (title, postList) => {
       {postList.slice(1, MAX_DISPLAY).map((post) => (
         <PostListItem key={post.slug} post={post} />
       ))}
+      <div className="flex flex-col gap-4">
+        <div className="col-span-1 text-gray-500 uppercase md:col-span-2 lg:col-span-4">
+          Editor picks
+        </div>
+        {postList.slice(0, 4).map((post) => (
+          <SmallArticle key={post.slug} post={post} />
+        ))}
+      </div>
     </GridSection>
   )
 }

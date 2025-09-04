@@ -4,6 +4,7 @@ import PostExcerpt from '@/components/post-shared/PostExcerpt'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Image from 'next/image'
+import PostTags from './post-shared/PostTags'
 
 interface HighlightedPostListItemProps {
   post: {
@@ -33,8 +34,9 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
     >
       <div className="block flex h-full w-full items-end">
         <div className="p-6 text-white">
-          <PostMeta slug={slug} title={title} tags={tags} />
+          <PostMeta slug={slug} title={title} tags={tags} className="mb-6" />
           <PostExcerpt summary={summary} textColor="text-gray-200" />
+          <PostTags tags={tags} />
         </div>
       </div>
     </li>
