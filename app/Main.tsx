@@ -1,8 +1,6 @@
 import Link from '@/components/Link'
 import PostListItem from '@/components/PostListItem'
 import GridSection from '@/components/GridSection'
-import siteMetadata from '@/data/siteMetadata'
-import NewsletterForm from 'pliny/ui/NewsletterForm'
 import HighlightedPostListItem from '@/components/HighlightedPostListItem'
 
 const MAX_DISPLAY = 7
@@ -44,11 +42,11 @@ const Home = ({ posts }) => {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {/* {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }

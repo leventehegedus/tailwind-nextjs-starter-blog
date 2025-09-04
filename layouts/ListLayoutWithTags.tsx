@@ -127,7 +127,7 @@ export default function ListLayoutWithTags({
           <div>
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
               {displayPosts.map((post) => (
-                <PostListItem key={post.path} post={post} />
+                <PostListItem key={post.path} post={{ ...post, summary: post.summary ?? '' }} />
               ))}
             </ul>
             {pagination && pagination.totalPages > 1 && (

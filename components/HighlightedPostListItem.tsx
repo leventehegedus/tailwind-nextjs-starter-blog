@@ -1,7 +1,6 @@
 import Link from '@/components/Link'
 import PostMeta from '@/components/post-shared/PostMeta'
 import PostExcerpt from '@/components/post-shared/PostExcerpt'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Image from 'next/image'
