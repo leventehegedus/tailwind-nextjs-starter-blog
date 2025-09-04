@@ -31,12 +31,12 @@ export default function HighlightedPostListItem({ post }: HighlightedPostListIte
         backgroundPosition: 'center',
       }}
     >
-      <a href={`/blog/${slug}`} className="block flex h-full w-full items-end">
+      <div className="block flex h-full w-full items-end">
         <div className="p-6 text-white">
           <PostMeta slug={slug} title={title} tags={tags} />
           <PostExcerpt summary={summary} textColor="text-gray-200" />
         </div>
-      </a>
+      </div>
     </li>
   )
 }
